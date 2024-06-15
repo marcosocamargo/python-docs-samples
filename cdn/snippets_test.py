@@ -106,3 +106,15 @@ def test_sign_cookie() -> None:
         )
         == "Cloud-CDN-Cookie=URLPrefix=aHR0cDovL3d3dy5leGFtcGxlLmNvbS9mb28v:Expires=1549751401:KeyName=my-key:Signature=Z9uYAu73YHioRScZDxnP-TnS274="
     )
+    
+    assert (
+        snippets.sign_cookie(
+            ""http://images.recordspreservation.org/Brasil/S%C3%A3o%20Paulo/Jundia%C3%AD/Nossa%20Senhora%20do%20Desterro/%C3%93bitos%201744-1787/IMG_007_0025/",
+            "rp2",
+            "TSE7kYuUgf0v0UdKbK9oOw==",
+            datetime.datetime.utcfromtimestamp(1719065402),
+        )
+        == "Cloud-CDN-Cookie=URLPrefix=aHR0cDovL2ltYWdlcy5yZWNvcmRzcHJlc2VydmF0aW9uLm9yZy9CcmFzaWwvUyVDMyVBM28lMjBQYXVsby9KdW5kaWElQzMlQUQvTm9zc2ElMjBTZW5ob3JhJTIwZG8lMjBEZXN0ZXJyby8lQzMlOTNiaXRvcyUyMDE3NDQtMTc4Ny9JTUdfMDA3XzAwMzIv:Expires=1719065402:KeyName=rp2:Signature=jLrtQdPTM-7mqJreuD5eaGCHELY="
+    )
+
+
